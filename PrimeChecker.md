@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class HelloWorld {
+public class Prime {
     public static int prime(int n){
         if(n<=1){
             return 0;
