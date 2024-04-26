@@ -38,11 +38,13 @@ public class FoodManagement {
         pass = newpass;
         System.out.println("Enter pin");
         int gg = sc.nextInt();
+        sc.nextLine();
         pins = gg;
         String ha;
         do {
             System.out.println("Input username: ");
             ha = sc.nextLine();
+            
             if (pass.equals(ha)) {
                 System.out.println("Matched");
                 break;
@@ -55,7 +57,7 @@ public class FoodManagement {
             System.out.println("Input pin: ");
              shet = sc.nextInt();
            
-            if (pass.equals(gg)) {
+            if (pins == shet) {
                 System.out.println("Matched");
                 break;
             } else {
