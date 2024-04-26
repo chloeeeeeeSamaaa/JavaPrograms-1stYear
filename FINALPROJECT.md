@@ -1,13 +1,12 @@
-
 import java.util.Scanner;
 
 public class FoodManagement {
 
     private int balance = 100;
     private int chickenPrice = 50;
-    //pbulic int beefPrice = 60;
+    private int beefPrice = 60;
     public static String pass = "";
-    public static int pins;
+    public static int pins; 
     
     public void processPurchase(int itemPrice, String itemName) {
         Scanner sc = new Scanner(System.in);
@@ -25,11 +24,14 @@ public class FoodManagement {
             System.out.println("Not bought");
         }
     }
+    
+    public void displayBalance() {
+        System.out.println("Current Balance: " + balance);
+    }
 
     public static void main(String[] args) {
         FoodManagement foodManager = new FoodManagement();
         Scanner sc = new Scanner(System.in);
-        int pin;
         int choice;
         
         System.out.println("Create account");
@@ -51,11 +53,12 @@ public class FoodManagement {
             } else {
                 System.out.println("Incorrect");
             }
-        } while (pass != ha);
-       int shet;
-          do {
+        } while (!pass.equals(ha));
+        
+        int shet;
+        do {
             System.out.println("Input pin: ");
-             shet = sc.nextInt();
+            shet = sc.nextInt();
            
             if (pins == shet) {
                 System.out.println("Matched");
@@ -69,20 +72,23 @@ public class FoodManagement {
         // Main menu
         while (true) {
             System.out.println("1. Chicken [" + foodManager.chickenPrice + "]");
-            //   System.out.println("2. Beef [" + foodManager.beefPrice + "]");
-            System.out.println("3. Exit");
+            System.out.println("2. Beef [" + foodManager.beefPrice + "]");
+            System.out.println("3. Display Balance");
+            System.out.println("4. Exit");
             System.out.println("Enter choice: ");
             choice = sc.nextInt();
 
             switch (choice) {
                 case 1:
-
                     foodManager.processPurchase(foodManager.chickenPrice, "chicken");
                     break;
                 case 2:
-                    //      foodManager.processPurchase(foodManager.beefPrice, "beef");
+                    foodManager.processPurchase(foodManager.beefPrice, "beef");
                     break;
                 case 3:
+                    foodManager.displayBalance();
+                    break;
+                case 4:
                     System.exit(0);
                     break;
                 default:
